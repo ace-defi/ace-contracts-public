@@ -51,6 +51,15 @@ this repository does not claim byte-for-byte reproduction of that facet.
 The other production contract types reproduce their creation bytecode and
 runtime templates. The production facet's source verification is linked below.
 
+### Public verification scope
+
+The Judge facet's [Sourcify verification record](https://sourcify.dev/server/v2/contract/999/0x76965a2F9A2e027933406C824Bc689C2F625e2dD?fields=all)
+contains the original compilation input with 109 source files, including mocks,
+legacy implementations, and Lucky Draw V1/V2. Those files are already public
+through source verification even though they are not all included here. This
+repository's minimal scope is not a claim that the wider verification input is
+private, or that every source in that input is an active production deployment.
+
 ## Production deployments
 
 | Component | Contract | HyperEVM address |
@@ -78,6 +87,71 @@ Runtime bytecode includes constructor-bound immutable values. A comparison
 with compiler output must account for the compiler's declared immutable
 references, rather than assume the runtime template is the deployed bytecode.
 Source availability and source verification are not security guarantees.
+
+## Trust model and known limitations
+
+These disclosures describe the current deployed design, not fixes or guarantees
+that privileged parties cannot cause harm.
+
+### Governance and Vault availability
+
+The production `GovernanceHub` uses a 24-hour timelock. The Admin Safe schedules
+ordinary operations; the Guardian or Recovery Safe executes them after the delay.
+Hub-authorized governance can configure or migrate business controllers, subject
+to the contracts' migration checks. Two parties can jointly replace the third
+through the restricted recovery path; this does not protect against collusion or
+a compromise shared across the remaining parties.
+
+The Guardian can cancel queued operations and pause immediately. `pause()` stops
+new round starts; `pauseAll()` also freezes Vault business actions, LP redemption,
+and payout withdrawal. Deposits remain available during an outflow freeze, so a
+deposit does not imply that immediate withdrawal is possible. Existing allocated
+claims are preserved but cannot be withdrawn while the relevant outflows are
+frozen. Unpausing requires ordinary delayed governance.
+
+### Lucky Draw administration and randomness
+
+Lucky Draw prizes are funded by the project's own, asset-isolated pools, not by
+LP deposits. Its Admin Safe directly controls economics, games and roles and can
+withdraw available surplus, without the Hub's 24-hour delay. Reserved and already
+claimable payouts are excluded from that surplus. Lucky Draw's pause blocks new
+draw requests, not fulfillment or withdrawal of already claimable prizes.
+
+Randomness uses an ACE-operated committed hash chain, not a trustless VRF. Correct
+revelations and draw outcomes can be checked publicly, and assigned preimages
+cannot be replaced or reordered. However, the operator knows future preimages.
+An operator or associated account with an eligible Judgment can predict outcomes
+and select inputs to its advantage before requesting a draw. Pool balances and
+configured daily/user budgets limit prize exposure; they do not prove that the
+operator cannot win its own draws. Public verifiability is not a guarantee of
+operator-independent fairness.
+
+Fulfillment is sequential and depends on the correct preimages remaining
+available. Anyone with the next correct preimage can resume fulfillment after a
+relayer outage. If that preimage is lost or withheld, later assigned draws can
+remain blocked, reserved payouts remain locked, and the active epoch cannot be
+replaced while draws are pending. There is no timeout cancellation or automatic
+release path for those pending draws. Rotating a signing key does not recover
+missing preimages. These are existing availability risks, not resolved by this
+source release.
+
+### USDC authorization exposure
+
+The DualPath controller supports both Vault allowance and commitment-bound
+EIP-3009 authorization. Its allowance path checks payout capacity but does not
+independently cap `entryAmount` at the same boundary. Normal transfers rely on the
+Judge's validation and the user's approval. If the trusted Judge/Controller path
+is compromised, a large standing allowance can expose wallet funds up to the
+remaining allowance and balance; the payout capacity limit is not an equivalent
+wallet spending limit.
+
+Prefer an exact, limited approval for the intended action and revoke unused
+allowances. EIP-3009 authorizations bind the amount and commitment details to one
+authorization rather than create a standing allowance. Neither approach is a
+blanket guarantee against implementation vulnerabilities. These limitations are
+disclosed, not claimed to be fixed by documentation.
+
+For privately reporting a vulnerability, see [SECURITY.md](SECURITY.md).
 
 ## License and contact
 
