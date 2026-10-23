@@ -635,11 +635,12 @@ abstract contract SharedMarketJudgeCore is AccessControl, ReentrancyGuard {
             revert InvalidAmount();
         }
 
-        _addPool(round, entryAsset, direction, amount, notionalUsd);
         uint256 maxPayoutAmount = _assetCapacity(round, entryAsset);
-        if (maxPayoutAmount == 0) {
+        // Expired rounds refund principal in full through the same payout cap.
+        if (maxPayoutAmount == 0 || amount > maxPayoutAmount) {
             revert InvalidAmount();
         }
+        _addPool(round, entryAsset, direction, amount, notionalUsd);
         uint256 nativeReserveDelta = _aggregateReserveDelta(
             round,
             EntryAsset.NATIVE

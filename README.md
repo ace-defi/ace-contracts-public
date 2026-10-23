@@ -3,6 +3,9 @@
 Production contract sources for ACE V5 and its bound Lucky Draw V3 instances
 on HyperEVM mainnet (chain ID **999**).
 
+The active Judge facet includes the refund principal cap fix activated on
+2026-10-23. Existing Vaults and Controllers retain their deployed versions.
+
 ## Scope
 
 This repository contains the deployed governance hub, V5 vaults, liquidity
@@ -41,24 +44,25 @@ Artifacts and cache files are generated locally and are not tracked. The npm
 package is marked private to prevent accidental npm publication; this does not
 restrict source use under the license.
 
-### Bytecode reproduction limitation
+### Bytecode reproduction
 
-This minimal snapshot excludes unrelated sources from the original compilation
-input. With the smaller input, `GovernedSharedMarketJudgeFacet` compiles to
-different bytecode despite identical contract sources and compiler settings.
-Rebuilding with the original input reproduces the production facet exactly;
-this repository does not claim byte-for-byte reproduction of that facet.
-The other production contract types reproduce their creation bytecode and
-runtime templates. The production facet's source verification is linked below.
+The pinned clean build reproduces the active `GovernedSharedMarketJudgeFacet`
+creation bytecode and runtime template. Filling the compiler-declared immutable
+references with the production Controller/Vault addresses and chain-bound
+bindings hash reproduces the runtime code hash recorded below. The comparison
+uses the active facet deployed for the 2026-10-23 upgrade.
 
 ### Public verification scope
 
-The Judge facet's [Sourcify verification record](https://sourcify.dev/server/v2/contract/999/0x76965a2F9A2e027933406C824Bc689C2F625e2dD?fields=all)
-contains the original compilation input with 109 source files, including mocks,
-legacy implementations, and Lucky Draw V1/V2. Those files are already public
-through source verification even though they are not all included here. This
-repository's minimal scope is not a claim that the wider verification input is
-private, or that every source in that input is an active production deployment.
+The active Judge facet's [verified source](https://hyperevmscan.io/address/0x3aC098C03752e574BBA6C833455B20fB1413Db85#code)
+includes the original compilation input with 109 source files, including mocks,
+legacy implementations, and Lucky Draw V1/V2. The previous facet's broader input
+also remains available in its [Sourcify record](https://sourcify.dev/server/v2/contract/999/0x76965a2F9A2e027933406C824Bc689C2F625e2dD?fields=all).
+These files are public through source verification even though they are not all
+included here. A file in a verification input does not imply that its contract
+was deployed or that an existing deployment was replaced. This repository keeps
+the original Controller sources because those production contracts were not
+upgraded with the Judge.
 
 ## Production deployments
 
@@ -72,7 +76,7 @@ private, or that every source in that input is an active production deployment.
 | BTC/USD oracle adapter | `PythMarketUsdJudgmentOracleAdapter` | `0xAE11841D83Ab52E75475a5BB4aEbc067Bd23A307` |
 | ETH/USD oracle adapter | `PythMarketUsdJudgmentOracleAdapter` | `0x12E88b379bDFC8392fA604Db7eB428C7aeAD8E04` |
 | HYPE/USD oracle adapter | `PythMarketUsdJudgmentOracleAdapter` | `0xb484346156670BFaA82929A1680D957c71E15A97` |
-| Judge core facet | `GovernedSharedMarketJudgeFacet` | `0x76965a2F9A2e027933406C824Bc689C2F625e2dD` |
+| Judge core facet | `GovernedSharedMarketJudgeFacet` | `0x3aC098C03752e574BBA6C833455B20fB1413Db85` |
 | Judge loupe facet | `SharedJudgmentDiamondLoupeFacet` | `0x36088D411D4b886408b0769DB96a268b34F8124a` |
 | Judge diamond | `GovernedSharedJudgmentDiamond` | `0xB050D2CA38B2200B0F76E315CbF8f8E85a3820D0` |
 | HYPE Lucky Draw | `AceLuckyDrawV3` | `0x92c4b052348808707A6Eb4D7aF493907B49951dF` |
@@ -80,13 +84,31 @@ private, or that every source in that input is an active production deployment.
 
 Deployment transactions and contract code can be inspected on
 [HyperEVMScan](https://hyperevmscan.io/). The Judge core facet's source match
-is also available on
-[Sourcify](https://repo.sourcify.dev/999/0x76965a2F9A2e027933406C824Bc689C2F625e2dD).
+is available in its
+[verified contract record](https://hyperevmscan.io/address/0x3aC098C03752e574BBA6C833455B20fB1413Db85#code).
 
 Runtime bytecode includes constructor-bound immutable values. A comparison
 with compiler output must account for the compiler's declared immutable
 references, rather than assume the runtime template is the deployed bytecode.
 Source availability and source verification are not security guarantees.
+
+### Refund principal cap upgrade, 2026-10-23
+
+The Judge now rejects an entry whose principal exceeds its round's asset payout
+capacity, before updating pools or transferring funds. The check covers native
+HYPE, USDC allowance and EIP-3009 entry paths. It ensures the recorded payout cap
+can cover a full principal refund when a round expires. Existing payout rates,
+aggregate risk checks and full-refund amounts are unchanged.
+
+The [executed governance transaction](https://hyperevmscan.io/tx/0xefc3101ff2dc03c72723795f4df4f4f71355280d4595efed4f9523ba8f54b833)
+replaced 55 existing Judge selectors and resumed rounds at block `49299160`
+(2026-10-23 09:27:30 UTC). It used no initializer and did not replace Vaults or
+Controllers. The active facet runtime code hash is
+`0x4b25dad59b8c01b6291b8d1012fdc2b2f754c8c3d635765d23379c70f670dc8f`.
+
+This prevents new entries with insufficient full-refund coverage; it does not
+repair earlier records. Controller-side principal validation available for future
+deployments is not part of the currently deployed Controller source snapshot.
 
 ## Trust model and known limitations
 
