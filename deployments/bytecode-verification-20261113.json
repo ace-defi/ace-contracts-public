@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-13T15:05:43.740Z",
+  "chainId": 999,
+  "mode": "build-and-chain",
+  "rpcHost": "rpc.hyperliquid.xyz",
+  "block": {
+    "number": 51164202,
+    "hash": "0x116e56829a2f02bcce0789736508c2eef42787ff1e1ac6615ba92995b2e862fa",
+    "timestamp": 1794582343
+  },
+  "contracts": {
+    "ScheduledTieSeedPolicy": {
+      "address": "0x6fc0647d4E8b78c4b37256836F7db929388234a1",
+      "runtimeBytes": 3841,
+      "runtimeCodeHash": "0x907204247a3787126ff26618ff3c079b58ca561e5a201ba9b0d32e56396e9c47",
+      "passed": true
+    },
+    "GovernedScheduledMarketJudgeFacet": {
+      "address": "0xb4a815a0a2bC931fe57BE9a6B66D52Ed5Bd6B87c",
+      "runtimeBytes": 24469,
+      "runtimeCodeHash": "0xfcb8f9da2d29d130e1caf69e6599d3bc21bcb60fa009398b9babd72eb7e266b6",
+      "passed": true
+    }
+  },
+  "facetSelectorCount": 55,
+  "passed": true
+}

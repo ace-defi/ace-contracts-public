@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-13T15:10:08Z",
+  "chainId": 999,
+  "provider": "Etherscan V2 / HyperEVMScan",
+  "passed": true,
+  "results": [
+    {
+      "address": "0x6fc0647d4E8b78c4b37256836F7db929388234a1",
+      "url": "https://hyperevmscan.io/address/0x6fc0647d4E8b78c4b37256836F7db929388234a1#code",
+      "checks": {
+        "sourceAvailable": true,
+        "notSimilarMatch": true,
+        "name": true,
+        "compiler": true,
+        "constructorArgs": true,
+        "sourceFiles": true,
+        "optimizer": true,
+        "viaIR": true,
+        "metadata": true
+      },
+      "passed": true,
+      "sourceResponseSha256": "b6cc8aa7b56b264755518f692c6dfcfc218f54908e397957a8cc04a9d5b14451"
+    },
+    {
+      "address": "0xb4a815a0a2bC931fe57BE9a6B66D52Ed5Bd6B87c",
+      "url": "https://hyperevmscan.io/address/0xb4a815a0a2bC931fe57BE9a6B66D52Ed5Bd6B87c#code",
+      "checks": {
+        "sourceAvailable": true,
+        "notSimilarMatch": true,
+        "name": true,
+        "compiler": true,
+        "constructorArgs": true,
+        "sourceFiles": true,
+        "optimizer": true,
+        "viaIR": true,
+        "metadata": true
+      },
+      "passed": true,
+      "sourceResponseSha256": "b6cc8aa7b56b264755518f692c6dfcfc218f54908e397957a8cc04a9d5b14451"
+    }
+  ]
+}

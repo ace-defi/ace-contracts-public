@@ -1,0 +1,405 @@
+{
+  "chainId": 999,
+  "compiler": {
+    "version": "0.8.19+commit.7dd6d404",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "viaIR": true,
+    "metadata": {
+      "bytecodeHash": "none"
+    },
+    "evmVersion": "paris"
+  },
+  "verificationScope": "Exact creation/runtime bytecode and current Diamond routing consistency; not a security audit or a guarantee of future configuration. No byte ranges are ignored.",
+  "previousPublicSnapshot": "1c4cf74ac4b3a8731df1d0921afacaa496259cc1",
+  "sourceProvenance": {
+    "releaseSourceCommit": "9eccef79ca978671bb11da189c6c325a0b90cdc4",
+    "frozenCompilerInputKeccak256": "0xb9539d93a37bd06f5e95d31d6dc9224fe49bcdd343f41961c2d70f28162d2856",
+    "note": "Deployed build used a larger compiler input. Public input omits unrelated sources; full bytecode equality is required."
+  },
+  "upgrade": {
+    "hash": "0x914bb4fd9ac90cefdae880f14e39128833d76595677243355efd00bd1541bf77",
+    "blockNumber": 51141793,
+    "blockHash": "0xc4be80d894e07e3d1da1895aaaf2825475859daa2320ed7f48ca4231dc5cdca2",
+    "timeUtc": "2026-11-13T08:58:21.000Z"
+  },
+  "judge": "0xB050D2CA38B2200B0F76E315CbF8f8E85a3820D0",
+  "facetSelectors": [
+    "0x00082645",
+    "0x01ffc9a7",
+    "0x09e2a7dd",
+    "0x0acbdee3",
+    "0x0f2df895",
+    "0x142ea7d1",
+    "0x1fc33110",
+    "0x200bee13",
+    "0x20f1b1ab",
+    "0x248a9ca3",
+    "0x28c77820",
+    "0x2cbfe5bb",
+    "0x2f2ff15d",
+    "0x3273e895",
+    "0x36568abe",
+    "0x39ed7965",
+    "0x3d2ce0cd",
+    "0x410e3600",
+    "0x454d0c30",
+    "0x45c397eb",
+    "0x485cc955",
+    "0x5c82be9e",
+    "0x6641ea08",
+    "0x69d6d37f",
+    "0x6a146024",
+    "0x6e098d40",
+    "0x6fc250bf",
+    "0x7564912b",
+    "0x779a9683",
+    "0x84977dc1",
+    "0x859c6972",
+    "0x87ba0a6d",
+    "0x885d563c",
+    "0x91d14854",
+    "0x948fd7bb",
+    "0x96af48d4",
+    "0x96de1080",
+    "0x9ff530b2",
+    "0xa0cc15b1",
+    "0xa217fddf",
+    "0xaa3a8ffe",
+    "0xab3856dd",
+    "0xb6901e86",
+    "0xbf53253b",
+    "0xd053ca3f",
+    "0xd354df8f",
+    "0xd547741f",
+    "0xdd121caa",
+    "0xe1a45218",
+    "0xe64b633b",
+    "0xe8080433",
+    "0xec979082",
+    "0xf3e95a6c",
+    "0xf5b541a6",
+    "0xf98e06c2"
+  ],
+  "configurationAtActivation": {
+    "chainId": 999,
+    "marketId": "0xbdb01e59906dc12af7442d9557d2c3e8b193fea6c1c02f25f87c34cf29b4edc4",
+    "coverageStart": "2026-01-01",
+    "coverageEndExclusive": "2029-01-01",
+    "tieBps": [
+      750,
+      937,
+      937
+    ],
+    "weekdayWindow": [
+      565,
+      955
+    ],
+    "overrides": [
+      {
+        "day": 20454,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20472,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20500,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20546,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20598,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20623,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20637,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20703,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20783,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20784,
+        "mode": 2,
+        "startMinute": 565,
+        "endMinute": 775
+      },
+      {
+        "day": 20811,
+        "mode": 2,
+        "startMinute": 565,
+        "endMinute": 775
+      },
+      {
+        "day": 20812,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20819,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20836,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20864,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20903,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20969,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 20987,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21004,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21067,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21147,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21148,
+        "mode": 2,
+        "startMinute": 565,
+        "endMinute": 775
+      },
+      {
+        "day": 21176,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21200,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21235,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21288,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21333,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21354,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21368,
+        "mode": 2,
+        "startMinute": 565,
+        "endMinute": 775
+      },
+      {
+        "day": 21369,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21431,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21511,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      },
+      {
+        "day": 21512,
+        "mode": 2,
+        "startMinute": 565,
+        "endMinute": 775
+      },
+      {
+        "day": 21543,
+        "mode": 1,
+        "startMinute": 0,
+        "endMinute": 0
+      }
+    ]
+  },
+  "contracts": {
+    "ScheduledTieSeedPolicy": {
+      "address": "0x6fc0647d4E8b78c4b37256836F7db929388234a1",
+      "transactionHash": "0x46f5236ef8f67f32beb66b7320b61300c0478e845d985d6b951b231393b8b53e",
+      "blockNumber": 50899660,
+      "blockHash": "0x3a55255620fd3ed940a9e29b7fd6dcb5015974e55e1d2f88eabd873cd80cfb77",
+      "constructorArgs": [
+        "0xD876385880F48685bf36e516CEDC73d100EA7778",
+        "0xbdb01e59906dc12af7442d9557d2c3e8b193fea6c1c02f25f87c34cf29b4edc4"
+      ],
+      "creationDataHash": "0xf423ae0166bdacee9f182df57284ed5fd008a3d107357d12cad814d88b248e2f",
+      "runtimeCodeHash": "0x907204247a3787126ff26618ff3c079b58ca561e5a201ba9b0d32e56396e9c47",
+      "sourceName": "contracts/judgment/ScheduledTieSeedPolicy.sol",
+      "creationBytecodeHash": "0xe7a683a6c908a4f4bba4e3bb1506c43273d07dc696b30e4994d264ae5f9072fe",
+      "runtimeTemplateHash": "0x60e8a121587e83b70e389faa7adff04e6488456cf8cf60b4acfa8ab1f9d14e17",
+      "runtimeBytes": 3841,
+      "immutables": {
+        "governanceHub": "0xD876385880F48685bf36e516CEDC73d100EA7778",
+        "marketId": "0xbdb01e59906dc12af7442d9557d2c3e8b193fea6c1c02f25f87c34cf29b4edc4"
+      },
+      "sourceClosure": [
+        "contracts/interfaces/IGovernanceHub.sol",
+        "contracts/judgment/ScheduledTieSeedPolicy.sol"
+      ]
+    },
+    "GovernedScheduledMarketJudgeFacet": {
+      "address": "0xb4a815a0a2bC931fe57BE9a6B66D52Ed5Bd6B87c",
+      "transactionHash": "0xd2e30c6cf8fadcc581a5ba60d2c096e466ca487ae257a4df892dc16e18ed548e",
+      "blockNumber": 50899721,
+      "blockHash": "0x109bfad1249f1c485c4a56aacb94bb26ed1f5e9be01ee0066fce51ce47540583",
+      "constructorArgs": [
+        "0x6D757eA00be86E04ca30Ac36157BA992d66AC279",
+        "0xD2413a0e6753F24FEabD6B1c951C83C2beBF304A",
+        "0x6fc0647d4E8b78c4b37256836F7db929388234a1",
+        "0xbdb01e59906dc12af7442d9557d2c3e8b193fea6c1c02f25f87c34cf29b4edc4"
+      ],
+      "creationDataHash": "0x7246c9dcb901e94e49dabb842b52fdfe32af225496f0e78831f5f76d8792275b",
+      "runtimeCodeHash": "0xfcb8f9da2d29d130e1caf69e6599d3bc21bcb60fa009398b9babd72eb7e266b6",
+      "sourceName": "contracts/judgment/diamond/GovernedScheduledMarketJudgeFacet.sol",
+      "creationBytecodeHash": "0xad7391c13bb920677297414fa7de5f9ecd23a1cd5e5f9b6d5c87a80b3a54dab9",
+      "runtimeTemplateHash": "0x3ced6c6d477f6d3ca6ff577623a6caf7f12fe9887f83b68da4bec971827ca81a",
+      "runtimeBytes": 24469,
+      "immutables": {
+        "nativeController": "0x6D757eA00be86E04ca30Ac36157BA992d66AC279",
+        "usdcController": "0xD2413a0e6753F24FEabD6B1c951C83C2beBF304A",
+        "nativeVault": "0xd39C426bd1a40b5cdB89B8CEb8464C4f78AbB29d",
+        "usdcVault": "0xf725Ac947c7B3EF790a3E68e2Ca2Fb48ce4023eD",
+        "bindingsHash": "0x979026bf78828c83e9d0a55e592789b16f7cd91e26fc3d95bb58e3cff4a501ec",
+        "seedPolicy": "0x6fc0647d4E8b78c4b37256836F7db929388234a1"
+      },
+      "sourceClosure": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
+        "@openzeppelin/contracts/access/AccessControl.sol",
+        "@openzeppelin/contracts/access/IAccessControl.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/utils/Strings.sol",
+        "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+        "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "@openzeppelin/contracts/utils/math/Math.sol",
+        "@openzeppelin/contracts/utils/math/SignedMath.sol",
+        "contracts/interfaces/IGovernanceHub.sol",
+        "contracts/interfaces/IJudgmentOracleAdapter.sol",
+        "contracts/interfaces/ISharedJudgmentLiquidityController.sol",
+        "contracts/interfaces/ISharedPoolVault.sol",
+        "contracts/judgment/ScheduledTieSeedPolicy.sol",
+        "contracts/judgment/SharedMarketJudgeCore.sol",
+        "contracts/judgment/diamond/GovernedScheduledMarketJudgeFacet.sol",
+        "contracts/judgment/diamond/GovernedSharedMarketJudgeFacet.sol",
+        "contracts/judgment/diamond/ISharedJudgmentDiamondRoot.sol",
+        "contracts/judgment/diamond/SharedMarketJudgeFacet.sol"
+      ]
+    }
+  },
+  "sourceSha256": {
+    "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": "a2c4e5c274a586f145d278293ae33198cd8f412ab7e6d26f2394c8949b32b24b",
+    "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": "db92fc1b515decad3a783b1422190877d2d70b907c6e36fb0998d9465aee42db",
+    "@openzeppelin/contracts/access/AccessControl.sol": "afd98330d27bddff0db7cb8fcf42bd4766dda5f60b40871a3bec6220f9c9edf7",
+    "@openzeppelin/contracts/access/IAccessControl.sol": "d03c1257f2094da6c86efa7aa09c1c07ebd33dd31046480c5097bc2542140e45",
+    "@openzeppelin/contracts/security/ReentrancyGuard.sol": "fa97ea556c990ee44f2ef4c80d4ef7d0af3f5f9b33a02142911140688106f5a9",
+    "@openzeppelin/contracts/utils/Context.sol": "b2cfee351bcafd0f8f27c72d76c054df9b571b62cfac4781ed12c86354e2a56c",
+    "@openzeppelin/contracts/utils/Strings.sol": "cb2df477077a5963ab50a52768cb74ec6f32177177a78611ddbbe2c07e2d36de",
+    "@openzeppelin/contracts/utils/introspection/ERC165.sol": "8806a632d7b656cadb8133ff8f2acae4405b3a64d8709d93b0fa6a216a8a6154",
+    "@openzeppelin/contracts/utils/introspection/IERC165.sol": "701e025d13ec6be09ae892eb029cd83b3064325801d73654847a5fb11c58b1e5",
+    "@openzeppelin/contracts/utils/math/Math.sol": "85a2caf3bd06579fb55236398c1321e15fd524a8fe140dff748c0f73d7a52345",
+    "@openzeppelin/contracts/utils/math/SignedMath.sol": "420a5a5d8d94611a04b39d6cf5f02492552ed4257ea82aba3c765b1ad52f77f6",
+    "contracts/interfaces/IGovernanceHub.sol": "950efbaa759ad04f119fb24e4d40b47be3c8074b62e7e50f7fa8033f18d17adb",
+    "contracts/interfaces/IJudgmentOracleAdapter.sol": "80f9860cb30dc9f75680f165b38bc4402a4ce4b5111d62a5357463589fe4a055",
+    "contracts/interfaces/ISharedJudgmentLiquidityController.sol": "72870e2f2c149cb515143d99b826325891acf49cc34d7d5486e7e4c069f504a4",
+    "contracts/interfaces/ISharedPoolVault.sol": "c3ad963bc341a44503b80f06c3156f5f821f4b6c68e5803779a37ca09002d38b",
+    "contracts/judgment/ScheduledTieSeedPolicy.sol": "7c5bb8f9c2c258e9c877df101e1b141079e68eaed51645d00406fa919415fa35",
+    "contracts/judgment/SharedMarketJudgeCore.sol": "f4a178b22c8684156ecf457040367b4d4a0005b47f1151170df7c50202238c69",
+    "contracts/judgment/diamond/GovernedScheduledMarketJudgeFacet.sol": "1b97a6eeb96a60c849fd847b24b19714a6a741b134f96e101006bf8265f1f679",
+    "contracts/judgment/diamond/GovernedSharedMarketJudgeFacet.sol": "d0e5721aaba9219efe154d92a81fc2959e8421be985159778eecd6822f3799a8",
+    "contracts/judgment/diamond/ISharedJudgmentDiamondRoot.sol": "4c85748fb2258b0e3e017ad9486b9c4d19c44d1aae26239a843bd219f4a250f0",
+    "contracts/judgment/diamond/SharedMarketJudgeFacet.sol": "50529018e4302496c8661f4dba7cb444653a924df89ca96c22d83e7988310db6"
+  }
+}

@@ -503,9 +503,11 @@ abstract contract SharedMarketJudgeCore is AccessControl, ReentrancyGuard {
         round.tieThresholdBp = market.economics.tieThresholdBp;
         round.upDownPayoutRateBps = market.economics.upDownPayoutRateBps;
         round.tiePayoutRateBps = market.economics.tiePayoutRateBps;
-        round.startUpPoolBps = market.economics.startUpPoolBps;
-        round.startDownPoolBps = market.economics.startDownPoolBps;
-        round.startTiePoolBps = market.economics.startTiePoolBps;
+        (
+            round.startUpPoolBps,
+            round.startDownPoolBps,
+            round.startTiePoolBps
+        ) = _roundSeedWeights(marketId, startTime_, market.economics);
         uint16 seedBps = marketSeedBps[marketId];
         (
             uint256 nativeSeedUsd,
@@ -1243,6 +1245,20 @@ abstract contract SharedMarketJudgeCore is AccessControl, ReentrancyGuard {
     /// @dev Direct v1 leaves this hook empty. The Diamond facet overrides it
     /// and reads the immutable-root start freeze flag.
     function _beforeStartMarketRound() internal view virtual {}
+
+    /// @dev A function-only extension point: never add base storage before the
+    /// deployed facet's Initializable fields. Old rounds use their own snapshot.
+    function _roundSeedWeights(
+        bytes32,
+        uint256,
+        JudgeEconomics storage economics
+    ) internal view virtual returns (uint16, uint16, uint16) {
+        return (
+            economics.startUpPoolBps,
+            economics.startDownPoolBps,
+            economics.startTiePoolBps
+        );
+    }
 
     function _usesSharedAssetOdds() internal pure virtual returns (bool) {
         return false;
